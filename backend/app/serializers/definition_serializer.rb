@@ -1,5 +1,5 @@
 class DefinitionSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes  :id, :description, :example, :entry_id
   belongs_to :entry
 end

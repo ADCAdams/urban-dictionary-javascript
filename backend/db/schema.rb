@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_015013) do
+ActiveRecord::Schema.define(version: 2021_02_24_200539) do
 
   create_table "definitions", force: :cascade do |t|
     t.string "description"
     t.string "example"
-    t.integer "entry_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "entry_id"
+    t.index ["entry_id"], name: "index_definitions_on_entry_id"
   end
 
   create_table "entries", force: :cascade do |t|
