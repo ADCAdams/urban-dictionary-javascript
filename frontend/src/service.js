@@ -36,8 +36,8 @@ class ApiService {
                 body: JSON.stringify(
                     {
                         definition: {
-                            description: e.target.children[0].value,
-                            example: e.target.children[1].value,
+                            description: e.target.children[1].value,
+                            example: e.target.children[5].value,
                             entry_id: entry_id
                         }
                     }

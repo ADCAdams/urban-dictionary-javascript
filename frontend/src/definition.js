@@ -69,7 +69,7 @@ class Definition {
 
     appendDefintionSpan(defSpan){
         let definitionsDivContainer = document.getElementById("definitions-div-container");
-        definitionsDivContainer[0].append(defSpan);
+        definitionsDivContainer.append(defSpan);
     }
 
 
