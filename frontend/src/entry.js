@@ -35,6 +35,29 @@ class Entry {
 
         
             containerDiv.append(entryElementP)
+
+            this.getDefinitions();
+
             Definition.newDefinitionForm(this.id)
     }
-}
+
+    getDefinitions(){
+        if (this.defintions){
+            this.definitions.forEach(function(def){
+
+                let newDef = new Definition(def)
+                newDef.createDefinitionSpan()
+            })
+        }
+    }
+
+
+
+
+
+
+
+
+} //ends class
+
+    

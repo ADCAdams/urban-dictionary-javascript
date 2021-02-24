@@ -6,6 +6,7 @@
 .definition-container-span {
     border: 1px groove;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: left;
     padding: 2.5%;
