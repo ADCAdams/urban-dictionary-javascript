@@ -31,10 +31,10 @@ class Entry {
         entryElementP.innerHTML = `<h2 id = entryTermID>
                     ${this.term}: </h2>
                     <br>
-                    <h2> Define it your way! </h2>`
+                    <h2> Define it your way below! </h2>`
 
         
             containerDiv.append(entryElementP)
-
+            Definition.newDefinitionForm(this.id)
     }
 }

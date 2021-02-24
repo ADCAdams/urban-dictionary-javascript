@@ -1,18 +1,18 @@
 class DefinitionsController < ApplicationController
 
     def index
-        @definitions = Definition.all
-        render json: @definitions
+        definitions = Definition.all
+        render json: definitions
     end
 
     def create
-        @definition = Definition.create(definition_params)
-        render json: @definition
+        definition = Definition.create(definition_params)
+        render json: definition
     end
 
     def destroy
-        @definition = Definition.find_by(id: params[:id]).destroy
-        render json: @definition
+        definition = Definition.find_by(id: params[:id]).destroy
+        render json: definition
     end
 
 private

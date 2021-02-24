@@ -11,6 +11,30 @@ class Definition {
 
 
 
+    static newDefinitionForm(entry_id) {
+
+        let containerDiv = document.getElementById('containerDiv');
+
+        let definitionForm = 
+            `   
+            <form  id="definition-form">
+            <label>Definition:</label>
+            <input type="text" class = "definition-form" id="definition-description"/>
+            <br>
+            <br>
+            <label>Use it in a sentence:</label>
+            <input type="text" class = "definition-form" id="definition-example"/>
+            <input type="submit"/>
+            <h4>Other definitions:</h4>
+            </form>
+            
+            `
+        containerDiv.insertAdjacentHTML('beforeend', definitionForm);
+     
+    }
+
+
+
 
 
 
