@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
 
 
     def create
-        #binding.pry
+        binding.pry
         if Entry.find_by(:term => entry_params[:term])
             entry = Entry.find_by(:term => entry_params[:term])
             redirect_to "/entries/#{entry.id}"

@@ -1,3 +1,3 @@
 class Entry < ApplicationRecord
-    has_many definitions
+    has_many :definitions
 end
