@@ -6,6 +6,7 @@ class DefinitionsController < ApplicationController
     end
 
     def create
+        #binding.pry
         definition = Definition.create(definition_params)
         render json: definition
     end

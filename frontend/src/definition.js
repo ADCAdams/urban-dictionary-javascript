@@ -37,11 +37,11 @@ class Definition {
     static newDefinitionObj(entry_id){
         let form = document.getElementById("definition-form-id")
         form.addEventListener('submit', function(e){
-
+            e.preventDefault();
             apiService.postDefinition(e, entry_id).then(json => {
-                form.reset()
-                let newDefinition = new Definition(json)
-                newDefinition.createDefinitionSpan()
+                form.reset();
+                let newDefinition = new Definition(json);
+                newDefinition.createDefinitionSpan();
 
             })
 
