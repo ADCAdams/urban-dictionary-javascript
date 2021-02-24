@@ -7,7 +7,7 @@ class ApiService {
 
     
     findOrCreateEntry(event){           // finds entry in db
-        return fetch(`${this.baseUrl}/users`, {
+        return fetch(`${this.baseUrl}/entries`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

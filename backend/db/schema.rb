@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_015013) do
   create_table "definitions", force: :cascade do |t|
     t.string "description"
     t.string "example"
-    t.integer "term_id"
+    t.integer "entry_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

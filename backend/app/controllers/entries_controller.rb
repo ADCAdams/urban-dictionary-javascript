@@ -6,6 +6,12 @@ class EntriesController < ApplicationController
         render json: entry
     end
 
+    def index
+        entries = Entry.all
+        render json: entries
+    end
+
+
     def create
         #binding.pry
         if Entry.find_by(:term => entry_params[:term])

@@ -3,7 +3,7 @@ class CreateDefinitions < ActiveRecord::Migration[6.0]
     create_table :definitions do |t|
       t.string :description
       t.string :example
-      t.integer :term_id
+      t.integer :entry_id
 
       t.timestamps
     end
