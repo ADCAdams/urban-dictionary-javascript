@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
     private
 
     def entry_params
-        params.require(:entry).permit(:term)
+        params.require(:entry).permit(:term, :definition_count, :likes)
     end
 
 

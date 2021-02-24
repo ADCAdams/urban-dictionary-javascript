@@ -4,7 +4,13 @@ class Entry {
     constructor(entry){
         this.id = entry.id
         this.term = entry.term
+        this.definition_count = entry.definition_count
         this.definitions = entry.definitions
+
+        if ( this.definition_count > 0) {
+            this.getOldDefinitions() 
+        }
+
         Entry.allEntries.push(this)
     }
 
@@ -23,7 +29,6 @@ class Entry {
 
 
     displayEntry(){
-
         let containerDiv = document.getElementById('containerDiv');
         containerDiv.innerHTML = ''
         let entryElementP = document.createElement('p');
@@ -49,6 +54,23 @@ class Entry {
                 newDef.createDefinitionSpan()
             })
         }
+    }
+
+    sendDefinition(def){
+        let newDef = new Definition(def)
+        newDef.createDefinitionSpan()
+    }
+
+    getOldDefinitions(){
+        apiService.getDefinitions().then(definitions => {
+            // console.log(heros)
+            definitions.forEach(definition => {
+                if (definition.entry_id){
+
+                }
+            
+            })
+        })
     }
 
 

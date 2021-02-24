@@ -8,8 +8,11 @@ class DefinitionsController < ApplicationController
     def create
         #binding.pry
         definition = Definition.create(definition_params)
-        entry = Entry.find_by(id: params[:entry_id])
-        entry.defintion_count += 1
+        entry = Entry.find_by(id: definition_params[:entry_id])
+        
+        #binding.pry
+        entry.definition_count += 1
+        entry.save
         render json: definition
     end
 

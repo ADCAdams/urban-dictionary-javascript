@@ -5,6 +5,9 @@ class ApiService {
     }
 
 
+    getDefinitions() {
+        return fetch(`${this.baseUrl}/definitions`).then(res => res.json()); //returns array inside json
+    }
     
     findOrCreateEntry(event){           // finds entry in db
         return fetch(`${this.baseUrl}/entries`, {
@@ -16,7 +19,9 @@ class ApiService {
             body: JSON.stringify(
                 {
                     entry: {
-                        term: event.target.children[1].value
+                        term: event.target.children[1].value,
+                        definition_count: 0,
+                        likes: 0
                     }
                 })
             })
