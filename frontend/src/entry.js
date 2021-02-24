@@ -21,4 +21,18 @@ class Entry {
         })
     }
 
+
+
+    displayEntry(){
+
+        let containerDiv = document.getElementById('containerDiv');
+        containerDiv.innerHTML = ''
+        let entryElementP = document.createElement('p');
+        let id = entryElementP.dataset.id 
+        entryElementP.innerHTML = `<h2 id = entryTermID>
+                    ${this.term}: </h2>`
+
+        
+            containerDiv.append(entryElementP)
+    }
 }
