@@ -57,9 +57,9 @@ class Definition {
         defSpanContainer.className = "definition-container-span"
         defSpanContainer.setAttribute('data-id', this.id)
         defDescSpan.className = "definition-description-span"
-        defDescSpan.innerHTML = this.description
+        defDescSpan.innerHTML = `Definition: ${this.description}`
         defExampleSpan.className = "definition-example-span"
-        defExampleSpan.innerHTML = this.example
+        defExampleSpan.innerHTML = `Example: ${this.example}`
 
         defSpanContainer.append(defDescSpan);
         defSpanContainer.append(defExampleSpan)

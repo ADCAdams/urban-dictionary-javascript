@@ -1,3 +1,22 @@
 .definition-form{
     width: 200px; height: 100px; border: 2px solid #999999; padding: 5px;
 }
+
+
+.definition-container-span {
+    border: 1px groove;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 2.5%;
+}
+
+.definition-description-span{
+    float: center;
+    margin: 5px;
+}
+
+.definition-example-span{
+    float: center;
+    margin: 5px;
+}
