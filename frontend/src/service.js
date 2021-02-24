@@ -26,4 +26,25 @@ class ApiService {
                 })
     }
 
+    postDefinition(e, entry_id){
+        return fetch(`${this.baseUrl}/definitions`, {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        definition: {
+                            description: e.target.children[0].value,
+                            example: e.target.children[1].value,
+                            entry_id: entry_id
+                        }
+                    }
+                )
+            })
+            .then(resp => resp.json())
+    }
+
+
 }
