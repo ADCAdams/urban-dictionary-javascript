@@ -185,3 +185,32 @@ Did you mean?  define_method):
   
 app/models/entry.rb:2:in `<class:Entry>'
 app/models/entry.rb:1:in `<main>'
+Started POST "/entries" for ::1 at 2021-02-23 23:09:06 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"first word!"}}
+Completed 500 Internal Server Error in 5608ms (ActiveRecord: 0.0ms | Allocations: 83721)
+
+
+  
+NameError (undefined local variable or method `entry_params' for #<EntriesController:0x00007fdb9d18f2d8>
+Did you mean?  entry_path):
+  
+app/controllers/entries_controller.rb:17:in `create'
+Started POST "/entries" for ::1 at 2021-02-23 23:10:01 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"first word"}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "first word"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:17:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+  [1m[36mEntry Create (1.2ms)[0m  [1m[32mINSERT INTO "entries" ("term", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["term", "first word"], ["created_at", "2021-02-24 04:10:22.354427"], ["updated_at", "2021-02-24 04:10:22.354427"]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Completed 200 OK in 21244ms (Views: 0.6ms | ActiveRecord: 18.0ms | Allocations: 20781)
+
+

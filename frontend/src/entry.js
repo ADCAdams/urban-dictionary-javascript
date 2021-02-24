@@ -22,7 +22,6 @@ class Entry {
     }
 
 
-
     displayEntry(){
 
         let containerDiv = document.getElementById('containerDiv');
@@ -30,9 +29,12 @@ class Entry {
         let entryElementP = document.createElement('p');
         let id = entryElementP.dataset.id 
         entryElementP.innerHTML = `<h2 id = entryTermID>
-                    ${this.term}: </h2>`
+                    ${this.term}: </h2>
+                    <br>
+                    <h2> Define it your way! </h2>`
 
         
             containerDiv.append(entryElementP)
+
     }
 }
