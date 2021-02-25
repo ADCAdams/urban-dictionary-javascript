@@ -2,6 +2,7 @@ class Entry {
     static allEntries = []
 
     constructor(entry){
+        
         this.id = entry.id
         this.term = entry.term
         this.definition_count = entry.definition_count
@@ -20,9 +21,19 @@ class Entry {
             e.preventDefault()
             apiService.findOrCreateEntry(e)
                 .then(entry => {
-                    console.log(entry)
-                    let newEntry = new Entry(entry)
-                    newEntry.displayEntry()
+                    if (entry.data){
+                                    //old entry
+                                    console.log("old")
+                                let oldEntry = entry.data.attributes
+                                let newEntry = new Entry(oldEntry)
+                                newEntry.displayEntry()
+                    } else {
+                        console.log("new")
+                        console.log(entry)
+                        let newEntry = new Entry(entry)
+                        newEntry.displayEntry()
+                    }
+                    
                 })
         })
     }
@@ -47,7 +58,7 @@ class Entry {
     }
 
     getDefinitions(){
-        if (this.defintions){
+        if (this.definitions){
             this.definitions.forEach(function(def){
 
                 let newDef = new Definition(def)

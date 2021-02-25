@@ -3,6 +3,7 @@ class Definition {
     static allDefinitions = []
 
     constructor(definition){
+      
         this.id = definition.id
         this.description = definition.description
         this.example = definition.example
@@ -40,8 +41,17 @@ class Definition {
             e.preventDefault();
             apiService.postDefinition(e, entry_id).then(json => {
                 form.reset();
-                let newDefinition = new Definition(json);
-                newDefinition.createDefinitionSpan();
+                if(json.data){
+                    let def = json.data.attributes
+                    let newDefinition = new Definition(def);
+                    newDefinition.createDefinitionSpan();
+                } else {
+                    let newDefinition = new Definition(json);
+                    newDefinition.createDefinitionSpan();
+                }
+
+                
+                
 
             })
 

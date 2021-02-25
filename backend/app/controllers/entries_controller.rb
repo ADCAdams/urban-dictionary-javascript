@@ -3,12 +3,16 @@ class EntriesController < ApplicationController
 
     def show
         entry = Entry.find_by(:id => params[:id].to_i)
-        render json: entry
+        options = {
+            include: [:definitions]
+        }
+        render json: EntrySerializer.new(entry,options)
     end
 
     def index
         entries = Entry.all
         render json: entries
+        render json: EntrySerializer.new(entries,options)
     end
 
 
@@ -25,7 +29,7 @@ class EntriesController < ApplicationController
     private
 
     def entry_params
-        params.require(:entry).permit(:term, :definition_count, :likes)
+        params.require(:entry).permit(:term, :definition_count)
     end
 
 

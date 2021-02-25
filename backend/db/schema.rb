@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_200539) do
   create_table "definitions", force: :cascade do |t|
     t.string "description"
     t.string "example"
+    t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "entry_id"
@@ -24,7 +25,6 @@ ActiveRecord::Schema.define(version: 2021_02_24_200539) do
   create_table "entries", force: :cascade do |t|
     t.string "term"
     t.integer "definition_count"
-    t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -20,8 +20,7 @@ class ApiService {
                 {
                     entry: {
                         term: event.target.children[1].value,
-                        definition_count: 0,
-                        likes: 0
+                        definition_count: 0
                     }
                 })
             })
@@ -43,6 +42,7 @@ class ApiService {
                         definition: {
                             description: e.target.children[1].value,
                             example: e.target.children[5].value,
+                            likes: 0,
                             entry_id: entry_id
                         }
                     }

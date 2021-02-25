@@ -6,7 +6,7 @@ class DefinitionsController < ApplicationController
     end
 
     def create
-        binding.pry
+
         definition = Definition.create(definition_params)
         entry = Entry.find_by(id: definition_params[:entry_id])
         
@@ -24,7 +24,7 @@ class DefinitionsController < ApplicationController
 private
 
     def definition_params
-        params.require(:definition).permit(:description, :example, :entry_id)
+        params.require(:definition).permit(:description, :example, :likes, :entry_id)
     end
 
 end
