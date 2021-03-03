@@ -8,6 +8,13 @@ class ApiService {
     getDefinitions() {
         return fetch(`${this.baseUrl}/definitions`).then(res => res.json()); //returns array inside json
     }
+
+    deleteDefinition(e) {
+        fetch(`${this.baseUrl}/definitions/${e.target.parentNode.dataset.id}`, {
+            method: "DELETE"
+        })
+    }
+
     
     findOrCreateEntry(event){           // finds entry in db
         return fetch(`${this.baseUrl}/entries`, {

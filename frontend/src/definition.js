@@ -64,15 +64,20 @@ class Definition {
         let defSpanContainer = document.createElement('span');
         let defDescSpan = document.createElement('span');
         let defExampleSpan = document.createElement('span');
+        let deleteButton = document.createElement('button')
         defSpanContainer.className = "definition-container-span"
         defSpanContainer.setAttribute('data-id', this.id)
         defDescSpan.className = "definition-description-span"
         defDescSpan.innerHTML = `Definition: ${this.description}`
         defExampleSpan.className = "definition-example-span"
         defExampleSpan.innerHTML = `Example: ${this.example}`
+        deleteButton.className = "definition-delete-button"
+        deleteButton.innerHTML = "Delete"
 
         defSpanContainer.append(defDescSpan);
         defSpanContainer.append(defExampleSpan)
+        defSpanContainer.append(deleteButton)
+        this.deleteDefinition(deleteButton)
 
         this.appendDefintionSpan(defSpanContainer)
     }
@@ -80,6 +85,15 @@ class Definition {
     appendDefintionSpan(defSpan){
         let definitionsDivContainer = document.getElementById("definitions-div-container");
         definitionsDivContainer.append(defSpan);
+
+    }
+
+    deleteDefinition(button){
+        button.addEventListener('click', function(e){
+            e.preventDefault()
+            apiService.deleteDefinition(e)
+                e.target.parentElement.remove();
+        })
     }
 
 

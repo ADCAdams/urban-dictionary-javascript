@@ -4308,3 +4308,449 @@ Processing by DefinitionsController#index as */*
 Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.2ms | Allocations: 2320)
 
 
+Started POST "/entries" for ::1 at 2021-02-24 20:00:43 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"video", "definition_count"=>0}}
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[36mEntry Create (2.3ms)[0m  [1m[32mINSERT INTO "entries" ("term", "definition_count", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["term", "video"], ["definition_count", 0], ["created_at", "2021-02-25 01:00:43.592879"], ["updated_at", "2021-02-25 01:00:43.592879"]]
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[35m (18.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+Completed 200 OK in 53ms (Views: 0.9ms | ActiveRecord: 22.5ms | Allocations: 7895)
+
+
+Started POST "/definitions" for ::1 at 2021-02-24 20:01:01 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"Is a thing I have to do to submit my project", "example"=>"I love making videos!", "likes"=>0, "entry_id"=>15}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.3ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Is a thing I have to do to submit my project"], ["example", "I love making videos!"], ["likes", 0], ["created_at", "2021-02-25 01:01:01.985105"], ["updated_at", "2021-02-25 01:01:01.985105"], ["entry_id", 15]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (15.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.0ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 1], ["updated_at", "2021-02-25 01:01:02.028523"], ["id", 15]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 89ms (Views: 1.6ms | ActiveRecord: 35.5ms | Allocations: 14871)
+
+
+Started POST "/definitions" for ::1 at 2021-02-24 20:01:59 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"eee", "example"=>"dwerwere", "likes"=>0, "entry_id"=>15}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (2.9ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "eee"], ["example", "dwerwere"], ["likes", 0], ["created_at", "2021-02-25 01:01:59.717257"], ["updated_at", "2021-02-25 01:01:59.717257"], ["entry_id", 15]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (25.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (2.1ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 2], ["updated_at", "2021-02-25 01:01:59.756885"], ["id", 15]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 68ms (Views: 1.3ms | ActiveRecord: 41.9ms | Allocations: 9374)
+
+
+Started POST "/entries" for ::1 at 2021-02-24 20:02:07 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"video", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "video"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/15
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1194)
+
+
+Started GET "/entries/15" for ::1 at 2021-02-24 20:02:07 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"15", "entry"=>{}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 15]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 15]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 22ms (Views: 8.1ms | ActiveRecord: 0.7ms | Allocations: 6117)
+
+
+Started GET "/definitions" for ::1 at 2021-02-24 20:02:07 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.6ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.6ms | Allocations: 2647)
+
+
+Started POST "/entries" for ::1 at 2021-02-24 20:09:36 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"Rakiah", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "Rakiah"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[36mEntry Create (1.1ms)[0m  [1m[32mINSERT INTO "entries" ("term", "definition_count", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["term", "Rakiah"], ["definition_count", 0], ["created_at", "2021-02-25 01:09:36.655189"], ["updated_at", "2021-02-25 01:09:36.655189"]]
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[35m (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+Completed 200 OK in 26ms (Views: 0.6ms | ActiveRecord: 17.0ms | Allocations: 3891)
+
+
+Started POST "/definitions" for ::1 at 2021-02-24 20:09:51 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"huge lover", "example"=>"You're such a rakiah!!!", "likes"=>0, "entry_id"=>16}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.0ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "huge lover"], ["example", "You're such a rakiah!!!"], ["likes", 0], ["created_at", "2021-02-25 01:09:51.550226"], ["updated_at", "2021-02-25 01:09:51.550226"], ["entry_id", 16]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.0ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 1], ["updated_at", "2021-02-25 01:09:51.570448"], ["id", 16]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 27.9ms | Allocations: 8945)
+
+
+Started POST "/definitions" for ::1 at 2021-02-24 20:10:00 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"wubber", "example"=>"shes a rak", "likes"=>0, "entry_id"=>16}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.1ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "wubber"], ["example", "shes a rak"], ["likes", 0], ["created_at", "2021-02-25 01:10:00.778676"], ["updated_at", "2021-02-25 01:10:00.778676"], ["entry_id", 16]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.0ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 2], ["updated_at", "2021-02-25 01:10:00.791031"], ["id", 16]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 15.7ms | Allocations: 8570)
+
+
+Started POST "/entries" for ::1 at 2021-02-24 20:10:07 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"Rakiah", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "Rakiah"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "Rakiah"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/16
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1152)
+
+
+Started GET "/entries/16" for ::1 at 2021-02-24 20:10:07 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"16", "entry"=>{}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 16]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 16]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.7ms | Allocations: 3413)
+
+
+Started GET "/definitions" for ::1 at 2021-02-24 20:10:07 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 2949)
+
+
+Started GET "/" for ::1 at 2021-03-02 19:10:08 -0500
+  [1m[35m (25.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/adcadams/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/adcadams/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 67.0ms | Allocations: 314)
+Completed 200 OK in 195ms (Views: 129.1ms | ActiveRecord: 0.0ms | Allocations: 1588)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-03-02 19:10:09 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.5) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/entries" for ::1 at 2021-03-02 19:11:00 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"George", "definition_count"=>0}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "George"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[36mEntry Create (3.1ms)[0m  [1m[32mINSERT INTO "entries" ("term", "definition_count", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["term", "George"], ["definition_count", 0], ["created_at", "2021-03-03 00:11:00.589257"], ["updated_at", "2021-03-03 00:11:00.589257"]]
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/entries_controller.rb:24:in `create'
+Completed 200 OK in 70ms (Views: 1.1ms | ActiveRecord: 18.4ms | Allocations: 8287)
+
+
+Started POST "/definitions" for ::1 at 2021-03-02 19:11:17 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"a guy who games and is an afrostar", "example"=>"What a george!", "likes"=>0, "entry_id"=>17}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.6ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "a guy who games and is an afrostar"], ["example", "What a george!"], ["likes", 0], ["created_at", "2021-03-03 00:11:17.738094"], ["updated_at", "2021-03-03 00:11:17.738094"], ["entry_id", 17]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (22.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.4ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 1], ["updated_at", "2021-03-03 00:11:17.772618"], ["id", 17]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 176ms (Views: 1.3ms | ActiveRecord: 33.8ms | Allocations: 14495)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:23:40 -0500
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"sdf", "definition_count"=>0}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "sdf"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "sdf"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/9
+Completed 302 Found in 22ms (ActiveRecord: 2.0ms | Allocations: 5351)
+
+
+Started GET "/entries/9" for ::1 at 2021-03-02 19:23:40 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"9", "entry"=>{}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 9]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 9]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 144ms (Views: 88.4ms | ActiveRecord: 1.5ms | Allocations: 6027)
+
+
+Started POST "/definitions" for ::1 at 2021-03-02 19:23:49 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"nonsense", "example"=>"sdf haha", "likes"=>0, "entry_id"=>9}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.8ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "nonsense"], ["example", "sdf haha"], ["likes", 0], ["created_at", "2021-03-03 00:23:49.198929"], ["updated_at", "2021-03-03 00:23:49.198929"], ["entry_id", 9]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.4ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 1], ["updated_at", "2021-03-03 00:23:49.245739"], ["id", 9]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 94ms (Views: 1.7ms | ActiveRecord: 21.4ms | Allocations: 14470)
+
+
+Started POST "/definitions" for ::1 at 2021-03-02 19:23:54 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"sdsdfd", "example"=>"sdfsdfsdfsdf", "likes"=>0, "entry_id"=>9}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.7ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "sdsdfd"], ["example", "sdfsdfsdfsdf"], ["likes", 0], ["created_at", "2021-03-03 00:23:54.191591"], ["updated_at", "2021-03-03 00:23:54.191591"], ["entry_id", 9]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (26.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.5ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 2], ["updated_at", "2021-03-03 00:23:54.232339"], ["id", 9]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (16.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 81ms (Views: 1.4ms | ActiveRecord: 46.9ms | Allocations: 8964)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:27:51 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop", "definition_count"=>0}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/2
+Completed 302 Found in 22ms (ActiveRecord: 1.8ms | Allocations: 5351)
+
+
+Started GET "/entries/2" for ::1 at 2021-03-02 19:27:51 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"2", "entry"=>{}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 2]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 2]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 44ms (Views: 36.7ms | ActiveRecord: 2.1ms | Allocations: 12157)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:27:51 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.5ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.5ms | Allocations: 3424)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:28:22 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop", "definition_count"=>0}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/2
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1169)
+
+
+Started GET "/entries/2" for ::1 at 2021-03-02 19:28:22 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"2", "entry"=>{}}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 2]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 2]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.8ms | Allocations: 4171)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:28:22 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (1.1ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 1.1ms | Allocations: 3388)
+
+
+Started DELETE "/definitions/3" for ::1 at 2021-03-02 19:28:25 -0500
+Processing by DefinitionsController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[36mDefinition Destroy (2.2ms)[0m  [1m[31mDELETE FROM "definitions" WHERE "definitions"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (19.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+Completed 200 OK in 33ms (Views: 1.6ms | ActiveRecord: 21.9ms | Allocations: 3142)
+
+
+Started DELETE "/definitions/10" for ::1 at 2021-03-02 19:28:29 -0500
+Processing by DefinitionsController#destroy as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[36mDefinition Destroy (1.2ms)[0m  [1m[31mDELETE FROM "definitions" WHERE "definitions"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (23.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+Completed 200 OK in 33ms (Views: 0.6ms | ActiveRecord: 24.8ms | Allocations: 2971)
+
+
+Started POST "/definitions" for ::1 at 2021-03-02 19:28:49 -0500
+Processing by DefinitionsController#create as JSON
+  Parameters: {"definition"=>{"description"=>"a brown smelly thing", "example"=>"george at a poop!!!!!! ew!!!!!", "likes"=>0, "entry_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mDefinition Create (1.6ms)[0m  [1m[32mINSERT INTO "definitions" ("description", "example", "likes", "created_at", "updated_at", "entry_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "a brown smelly thing"], ["example", "george at a poop!!!!!! ew!!!!!"], ["likes", 0], ["created_at", "2021-03-03 00:28:49.296527"], ["updated_at", "2021-03-03 00:28:49.296527"], ["entry_id", 2]]
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[35m (21.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:10:in `create'
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:11:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[36mEntry Update (1.4ms)[0m  [1m[33mUPDATE "entries" SET "definition_count" = ?, "updated_at" = ? WHERE "entries"."id" = ?[0m  [["definition_count", 5], ["updated_at", "2021-03-03 00:28:49.329051"], ["id", 2]]
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:15:in `create'
+Completed 200 OK in 58ms (Views: 0.6ms | ActiveRecord: 32.8ms | Allocations: 9442)
+
+
+Started DELETE "/definitions/18" for ::1 at 2021-03-02 19:28:52 -0500
+Processing by DefinitionsController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[36mDefinition Destroy (1.3ms)[0m  [1m[31mDELETE FROM "definitions" WHERE "definitions"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+  [1m[35m (16.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/definitions_controller.rb:20:in `destroy'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 18.3ms | Allocations: 2961)
+
+
