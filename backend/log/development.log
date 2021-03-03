@@ -5281,3 +5281,186 @@ Processing by DefinitionsController#destroy as */*
 Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 22.7ms | Allocations: 2947)
 
 
+Started POST "/entries" for ::1 at 2021-03-02 19:43:03 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 34ms (ActiveRecord: 3.9ms | Allocations: 5351)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:43:04 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.4ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 63ms (Views: 49.7ms | ActiveRecord: 2.3ms | Allocations: 11509)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:43:04 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+Started GET "/definitions" for ::1 at 2021-03-02 19:43:04 -0500
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 1493)
+
+
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.5ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.5ms | Allocations: 2871)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:43:04 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.9ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.4ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 1.7ms | Allocations: 3437)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:43:04 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (3.0ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 3.0ms | Allocations: 2795)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:43:12 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1169)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:43:12 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.4ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.8ms | Allocations: 3395)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:43:12 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 2776)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:43:24 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1169)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:43:24 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.6ms | Allocations: 3395)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:43:24 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.3ms | Allocations: 2776)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:44:37 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1169)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:44:37 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 3395)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:44:37 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.2ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 2776)
+
+
+Started POST "/entries" for ::1 at 2021-03-02 19:45:19 -0500
+Processing by EntriesController#create as JSON
+  Parameters: {"entry"=>{"term"=>"poop2", "definition_count"=>0}}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:20:in `create'
+  [1m[36mCACHE Entry Load (0.0ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."term" = ? LIMIT ?[0m  [["term", "poop2"], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:21:in `create'
+Redirected to http://localhost:3000/entries/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1152)
+
+
+Started GET "/entries/1" for ::1 at 2021-03-02 19:45:19 -0500
+Processing by EntriesController#show as JSON
+  Parameters: {"id"=>"1", "entry"=>{}}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/entries_controller.rb:5:in `show'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "definitions"."id" FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+  [1m[36mDefinition Load (0.3ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions" WHERE "definitions"."entry_id" = ?[0m  [["entry_id", 1]]
+  ↳ app/controllers/entries_controller.rb:9:in `show'
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 1.0ms | Allocations: 3393)
+
+
+Started GET "/definitions" for ::1 at 2021-03-02 19:45:19 -0500
+Processing by DefinitionsController#index as */*
+  [1m[36mDefinition Load (0.4ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  ↳ app/controllers/definitions_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.4ms | Allocations: 2776)
+
+
