@@ -21,3 +21,17 @@
     float: center;
     margin: 5px;
 }
+.definition-delete-button:hover{
+    background-color: blueviolet;
+ 
+
+    color: whitesmoke;
+    float: right;
+
+}
+
+.definition-delete-button{
+    width: 10%;
+    float: center;
+    margin: 2%;
+}
