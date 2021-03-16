@@ -49,18 +49,51 @@ class Entry {
                     <br>
                     <h2> Define it your way below! </h2>`
 
-        
-            containerDiv.append(entryElementP)
+            let sortButton = document.createElement('button')
+            sortButton.className = "definition-sort-button"
+            sortButton.innerHTML = "Sort Definitions"
+            sortButton.dataset.id = this.id
+    
+            this.sortDefinitions(sortButton);
+            containerDiv.prepend(sortButton);
 
+            containerDiv.append(entryElementP)
+ 
             this.getDefinitions();
 
             Definition.newDefinitionForm(this.id)
     }
 
+    sortDefinitions(button){
+
+
+        button.addEventListener('click', function(e){
+            let entryID = parseInt(e.target.dataset.id);
+            let entry = Entry.allEntries.find(element => element.id = entryID);
+
+            e.preventDefault()
+            document.getElementById("definitions-div-container").innerHTML="";
+            entry.getDefinitions();
+        })
+        
+    }
+
     getDefinitions(){
         if (this.definitions){
+        
+            this.definitions.sort(function(a,b) {
+                var nameA = a.description.toUpperCase(); // ignore upper and lowercase
+              var nameB = b.description.toUpperCase(); // ignore upper and lowercase
+              if (nameA < nameB) {
+                return -1; //nameA comes first
+              }
+              if (nameA > nameB) {
+                return 1; // nameB comes first
+              }
+              return 0;  // names must be equal
+            })
             this.definitions.forEach(function(def){
-
+                
                 let newDef = new Definition(def)
                 newDef.createDefinitionSpan()
             })

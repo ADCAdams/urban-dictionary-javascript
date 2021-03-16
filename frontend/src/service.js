@@ -14,6 +14,25 @@ class ApiService {
             method: "DELETE"
         })
     }
+    likeDefinition(e) {
+        fetch(`${this.baseUrl}/definitions/${e.target.parentNode.dataset.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(
+                {
+                    definition: {
+                        id: e.target.parentNode.dataset.id
+                    }
+                })
+        })
+            .then(resp => {
+                let json = resp.json()
+                return json     
+            })
+    }
 
     
     findOrCreateEntry(event){           // finds entry in db

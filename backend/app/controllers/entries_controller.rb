@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
             entry = Entry.find_by(:term => entry_params[:term])
             redirect_to "/entries/#{entry.id}"
         else
-            entry = Entry.create(entry_params)
+            entry = Entry.create(entry_params) #redirect
             render json: entry
         end
     end

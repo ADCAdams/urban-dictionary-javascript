@@ -12,6 +12,21 @@
     padding: 2.5%;
 }
 
+.definition-container-span {
+    border: 1px groove;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    padding: 2.5%;
+}
+
+.definition-top-container-span {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
 .definition-description-span{
     float: center;
     margin: 5px;
@@ -21,16 +36,21 @@
     float: center;
     margin: 5px;
 }
-.definition-delete-button:hover{
+.definition-button:hover{
     background-color: blueviolet;
  
 
     color: whitesmoke;
-    float: right;
 
 }
 
-.definition-delete-button{
-    width: 10%;
+.definition-button{
+    width: 20%;
+    height: 25%;
+    margin: 2%;
+}
+.definition-sort-button{
+    width: 20%;
+    height: 30px;
     margin: 2%;
 }
